@@ -11,7 +11,15 @@ namespace ConsoleUI
         //Open Closed Principle
         static void Main(string[] args)
         {
-            //ProductTest();
+            //Data Transformation Object
+            //IoC
+
+            ProductTest();
+            //CategoryTest();
+        }
+
+        private static void CategoryTest()
+        {
             //IoC
             CategoryManager categoryManager = new CategoryManager(new EfCategoryDal());
             foreach (var category in categoryManager.GetAll())
@@ -24,9 +32,9 @@ namespace ConsoleUI
         {
             ProductManager productManager = new ProductManager(new EfProductDal());
 
-            foreach (var product in productManager.GetByUnitPrice(50, 100))
+            foreach (var product in productManager.GetProductDetails())
             {
-                Console.WriteLine(product.ProductName);
+                Console.WriteLine("{0} - {1}", product.ProductName, product.CategoryName);
             }
         }
     }
