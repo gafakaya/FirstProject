@@ -14,39 +14,39 @@ namespace ConsoleUI
             //Data Transformation Object
             //IoC
 
-            ProductTest();
-            CategoryTest();
+            //ProductTest();
+            //CategoryTest();
         }
 
-        private static void CategoryTest()
-        {
-            //IoC
-            CategoryManager categoryManager = new CategoryManager(new EfCategoryDal());
-            foreach (var category in categoryManager.GetAll().Data)
-            {
-                Console.WriteLine(category.CategoryName);
-            }
-        }
+        //private static void CategoryTest()
+        //{
+        //    //IoC
+        //    CategoryManager categoryManager = new CategoryManager(new EfCategoryDal());
+        //    foreach (var category in categoryManager.GetAll().Data)
+        //    {
+        //        Console.WriteLine(category.CategoryName);
+        //    }
+        //}
 
-        private static void ProductTest()
-        {
-            ProductManager productManager = new ProductManager(new EfProductDal());
+        //private static void ProductTest()
+        //{
+        //    ProductManager productManager = new ProductManager(new EfProductDal(), new CategoryManager(new EfCategoryDal()));
 
-            var result = productManager.GetProductDetails();
+        //    var result = productManager.GetProductDetails();
 
-            if (result.Success == true)
-            {
-                foreach (var product in result.Data)
-                {
-                    Console.WriteLine("{0} - {1}", product.ProductName, product.CategoryName);
-                }
-            }
-            else
-            {
-                Console.WriteLine(result.Message);
-            }
+        //    if (result.Success == true)
+        //    {
+        //        foreach (var product in result.Data)
+        //        {
+        //            Console.WriteLine("{0} - {1}", product.ProductName, product.CategoryName);
+        //        }
+        //    }
+        //    else
+        //    {
+        //        Console.WriteLine(result.Message);
+        //    }
 
 
-        }
+        //}
     }
 }
