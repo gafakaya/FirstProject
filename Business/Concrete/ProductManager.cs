@@ -50,7 +50,7 @@ namespace Business.Concrete
 
             return new SuccessResult();
         }
-
+        [SecuredOperation("product.list")]
         public IDataResult<List<Product>> GetAll()
         {
             // İş kodları
